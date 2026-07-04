@@ -1,1 +1,1 @@
-# HacherMode
+# HackerMode
