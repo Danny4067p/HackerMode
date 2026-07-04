@@ -1,0 +1,246 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fuente monoespaciada para darle el toque hacker/consola */
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+
+body{
+    /* Degradado de negro profundo a un verde gótico/oscuro militar */
+    background: linear-gradient(135deg, #050a05, #000000);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* contenedor principal */
+.contenedor{
+    width: 90%;
+    max-width: 700px;
+    background: #0a0f0d; /* Fondo negro mate */
+    padding: 40px;
+    border-radius: 12px; /* Bordes un poco más rectos y limpios */
+    text-align: center;
+    border: 1px solid #1a3a20; /* Borde sutil verde oscuro */
+    /* Sombra de neón verde gótico */
+    box-shadow: 0 0 30px rgba(0, 255, 102, 0.15);
+}
+
+/* secciones */
+section{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+/* pantalla activa */
+.show{
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* textos */
+h1, h3{
+    color: #00ff66; /* Verde neón brillante estilo terminal */
+    text-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+    margin-bottom: 20px;
+}
+
+p{
+    color: #8a9a86; /* Verde grisáceo opaco muy gótico */
+    margin-bottom: 20px;
+}
+
+/* botones principales */
+button{
+    background: #0f1c12;
+    color: #00ff66;
+    border: 1px solid #00ff66; /* Borde neón */
+    padding: 15px 30px;
+    border-radius: 4px; /* Estilo más cuadrado/militar */
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.1);
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    transform: scale(1.03);
+    background: #00ff66;
+    color: #000000; /* Invierte colores al pasar el mouse */
+    box-shadow: 0 0 20px rgba(0, 255, 102, 0.5);
+}
+
+/* input de contraseña estilo terminal */
+input{
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    border: 1px solid #1a3a20;
+    background: #050705;
+    color: #00ff66;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus{
+    border-color: #00ff66;
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+}
+
+/* grid consejos */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* tarjetas de consejos */
+.card{
+    background: #070c08;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 3px solid #00ff66; /* Línea de acento verde a la izquierda */
+    text-align: left;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+/* quiz */
+.pregunta{
+    margin: 20px 0;
+    text-align: left;
+    border-bottom: 1px dashed #1a3a20;
+    padding-bottom: 15px;
+}
+
+/* botones de las opciones del quiz */
+.opcion{
+    display: block;
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #1a3a20;
+    cursor: pointer;
+    background: #0a0f0d;
+    color: #8a9a86;
+    text-align: left;
+    text-transform: none;
+    box-shadow: none;
+}
+
+.opcion:hover{
+    background: #111d14;
+    color: #00ff66;
+    border-color: #00ff66;
+    box-shadow: none;
+}
+
+/* Mensaje de error personalizado para la contraseña (JS) */
+#mensajeError {
+    font-size: 14px;
+    text-shadow: 0 0 8px rgba(255, 74, 74, 0.4);
+}
+
+#resultado{
+    margin-top: 20px;
+    color: #00ff66;
+    font-weight: bold;
+}
+
+/* ==========================================
+   ALERTA ROJA: MODO DIABÓLICO / HARDCORE 
+   ========================================== */
+
+/* Animación de pulso de fondo estilo alarma de brecha de seguridad */
+@keyframes pulsoAlarma {
+    0% { background: linear-gradient(135deg, #100000, #000000); }
+    50% { background: linear-gradient(135deg, #250000, #050000); }
+    100% { background: linear-gradient(135deg, #100000, #000000); }
+}
+
+/* Cuando esta clase se active en el body, todo cambia a rojo */
+body.modo-hardcore {
+    animation: pulsoAlarma 3s infinite ease-in-out;
+}
+
+body.modo-hardcore .contenedor {
+    background: #0d0202;
+    border: 1px solid #ff0033;
+    box-shadow: 0 0 35px rgba(255, 0, 51, 0.3);
+}
+
+body.modo-hardcore h1, 
+body.modo-hardcore h3,
+body.modo-hardcore #resultado {
+    color: #ff0033; /* Rojo sangre brillante */
+    text-shadow: 0 0 12px rgba(255, 0, 51, 0.6);
+}
+
+body.modo-hardcore p {
+    color: #a37a7a; /* Texto gris rojizo opaco */
+}
+
+body.modo-hardcore button {
+    background: #1c0505;
+    color: #ff0033;
+    border: 1px solid #ff0033;
+    box-shadow: 0 0 10px rgba(255, 0, 51, 0.2);
+}
+
+body.modo-hardcore button:hover {
+    background: #ff0033;
+    color: #000000;
+    box-shadow: 0 0 25px rgba(255, 0, 51, 0.7);
+}
+
+body.modo-hardcore input {
+    background: #080101;
+    color: #ff0033;
+    border: 1px solid #4a0d0d;
+}
+
+body.modo-hardcore input:focus {
+    border-color: #ff0033;
+    box-shadow: 0 0 15px rgba(255, 0, 51, 0.4);
+}
+
+body.modo-hardcore .card {
+    background: #140303;
+    border-left: 3px solid #ff0033;
+}
+
+body.modo-hardcore .opcion {
+    background: #0d0202;
+    border: 1px solid #4a0d0d;
+    color: #a37a7a;
+}
+
+body.modo-hardcore .opcion:hover {
+    background: #250505;
+    color: #ff0033;
+    border-color: #ff0033;
+}

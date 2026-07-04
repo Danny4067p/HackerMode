@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protege tus Cuentas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="bienvenida">
+    <div class="contenedor">
+        <h1>🛡️ Protege tus cuentas y dispositivos</h1>
+        <p>Aprende hábitos simples de seguridad digital.</p>
+        <button id="btnComenzar">Ver lista de consejos</button>
+    </div>
+</section>
+
+<section id="password">
+    <div class="contenedor">
+        <h1>🔐 Crea una contraseña</h1>
+        <p>Este ejercicio es educativo.</p>
+        
+        <input type="password" id="inputPassword" placeholder="Escribe una contraseña">
+        <p id="mensajeError" style="color: #ff4a4a; display: none; font-weight: bold; margin-top: 10px;"></p>
+
+        <button id="btnValidar">Continuar</button>
+    </div>
+</section>
+
+<section id="consejos">
+    <div class="contenedor">
+        <h1>📋 Consejos de Seguridad Digital</h1>
+        <p>Pequeñas acciones que protegen tu vida digital 👇</p>
+        <div class="grid">
+            <div class="card">
+                <h3>🔐 Verificación en 2 pasos</h3>
+                <p>Actívala en tus cuentas importantes.</p>
+            </div>
+            <div class="card">
+                <h3>🔑 Contraseñas fuertes</h3>
+                <p>No uses la misma contraseña en todo.</p>
+            </div>
+            <div class="card">
+                <h3>📧 Correos sospechosos</h3>
+                <p>No abras enlaces desconocidos.</p>
+            </div>
+            <div class="card">
+                <h3>🔄 Actualizaciones</h3>
+                <p>Mantén tu sistema actualizado.</p>
+            </div>
+            <div class="card">
+                <h3>📶 WiFi pública</h3>
+                <p>Evita redes abiertas para datos sensibles.</p>
+            </div>
+            <div class="card">
+                <h3>💾 Copias de seguridad</h3>
+                <p>Guarda tus archivos importantes.</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 25px; border-top: 1px dashed #1a3a20; padding-top: 15px;">
+            <p>Selecciona el nivel de la auditoría:</p>
+            <button id="btnFacil" style="margin-right: 10px; background: #070c08;">Nivel: Fácil</button>
+            <button id="btnDificil" style="background: #070c08; border-color: #ff4a4a; color: #ff4a4a;">Nivel: Hardcore</button>
+        </div>
+    </div>
+</section>
+
+<section id="quiz">
+    <div class="contenedor">
+        <h1 id="tituloQuiz">🧠 Quiz de Seguridad</h1>
+        <p style="color: #ff4a4a; font-weight: bold;">⚠️ Alerta: Un solo fallo y el sistema se reiniciará.</p>
+
+        <div id="bloqueFacil">
+            <div class="pregunta">
+                <h3>1. Contraseña segura</h3>
+                <button class="opcion" data-correct="false">123456</button>
+                <button class="opcion" data-correct="false">miNombre</button>
+                <button class="opcion" data-correct="true">M1Casa#2026</button>
+            </div>
+            <div class="pregunta">
+                <h3>2. Phishing</h3>
+                <button class="opcion" data-correct="true">Robo de datos mediante engaño</button>
+                <button class="opcion" data-correct="false">Un tipo de software antivirus</button>
+                <button class="opcion" data-correct="false">Un videojuego de simulación</button>
+            </div>
+            <div class="pregunta">
+                <h3>3. Correos sospechosos</h3>
+                <button class="opcion" data-correct="false">Abrirlos de inmediato</button>
+                <button class="opcion" data-correct="true">Ignorarlos y reportarlos</button>
+                <button class="opcion" data-correct="false">Responder pidiendo explicaciones</button>
+            </div>
+        </div>
+
+        <div id="bloqueDificil">
+            <div class="pregunta">
+                <h3>1. ¿Cuál es el principal peligro de un ataque Man-in-the-Middle (MitM) en una red pública?</h3>
+                <button class="opcion" data-correct="false">Infección directa por Ransomware</button>
+                <button class="opcion" data-correct="true">Intercepción y modificación de tráfico sensible</button>
+                <button class="opcion" data-correct="false">Ataque de denegación de servicio (DDoS) local</button>
+            </div>
+            <div class="pregunta">
+                <h3>2. Si un Ransomware cifra los archivos corporativos, ¿cuál es la primera respuesta técnica correcta?</h3>
+                <button class="opcion" data-correct="true">Aislar el equipo afectado de la red inmediatamente</button>
+                <button class="opcion" data-correct="false">Pagar el rescate en criptomonedas rápidamente</button>
+                <button class="opcion" data-correct="false">Apagar el router principal de toda la empresa</button>
+            </div>
+            <div class="pregunta">
+                <h3>3. ¿Por qué el MFA basado en SMS se considera menos seguro que una app de autenticación (TOTP)?</h3>
+                <button class="opcion" data-correct="false">Porque los SMS consumen datos móviles</button>
+                <button class="opcion" data-correct="false">Porque los códigos SMS caducan en menos tiempo</button>
+                <button class="opcion" data-correct="true">Porque es vulnerable a ataques de SIM Swapping e intercepción</button>
+            </div>
+        </div>
+
+        <button id="btnResultado">Ver resultado</button>
+        <button id="btnReiniciarQuiz">🔄 Reiniciar Quiz</button>
+
+        <h2 id="resultado"></h2>
+        <p id="mensajePenalizacion" style="color: #ff4a4a; display: none; font-weight: bold; margin-top: 15px;">❌ ¡ACCESO DENEGADO! Respuesta incorrecta. Reiniciando sistema...</p>
+
+        <button id="btnVolverConsejos">⬅ Volver a consejos</button>
+    </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
